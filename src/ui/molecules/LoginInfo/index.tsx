@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { LoginStateContext } from "./LoginContext";
+import { LoginStateContext } from "../../LoginContext";
 
 export const LoginInfo = () => {
   const { user } = useContext(LoginStateContext);

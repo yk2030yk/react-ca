@@ -3,6 +3,9 @@ import { ApiService } from "./ApiService";
 const sleep = (second: number) =>
   new Promise((resolve) => setTimeout(resolve, second * 1000));
 
+/**
+ * Mock Api Service
+ */
 export class MockApiService implements ApiService {
   async post<T>(url: string, _option: { data: any }): Promise<T> {
     await sleep(2);

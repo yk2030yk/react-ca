@@ -1,19 +1,21 @@
+import { ThemeProvider } from "@emotion/react";
+
 import { UseCaseProvider } from "@/presentation/UseCaseContext";
 import { UseCaseFactory } from "@/presentation/UseCaseFactory";
 
 import { LoginProvider } from "./LoginContext";
-import { LoginInfo } from "./LoginInfo";
-import { LoginForm } from "./LoginForm";
+import { Login } from "./organisms";
 
 function App() {
   const factory = new UseCaseFactory();
   return (
-    <UseCaseProvider factory={factory}>
-      <LoginProvider>
-        <LoginInfo />
-        <LoginForm />
-      </LoginProvider>
-    </UseCaseProvider>
+    <ThemeProvider theme={{}}>
+      <UseCaseProvider factory={factory}>
+        <LoginProvider>
+          <Login />
+        </LoginProvider>
+      </UseCaseProvider>
+    </ThemeProvider>
   );
 }
 
