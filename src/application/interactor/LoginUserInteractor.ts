@@ -1,4 +1,4 @@
-import { LoginUser } from "./LoginUser";
+import { LoginUser } from "../usecases/LoginUser";
 import { UserPort } from "../ports/UserPort";
 
 export class LoginUserInteractor implements LoginUser {

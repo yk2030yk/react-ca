@@ -1,13 +1,13 @@
 import { useState } from "react";
-import { useUseCase } from "../contexts/UseCaseContext";
-import { useLoginUser } from "./hooks/useLoginUser";
+import { useUseCase } from "@/presentation/useUseCase";
+import { useLoginUser } from "@/presentation/useLoginUser";
 
 export const LoginForm = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const usecases = useUseCase();
-  const { login } = useLoginUser(usecases);
+  const { LoginUser } = useUseCase();
+  const { login } = useLoginUser(LoginUser);
 
   return (
     <div>
