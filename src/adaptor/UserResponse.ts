@@ -1,3 +1,4 @@
 export type UserResponse = {
-  name: string;
+  lastName: string;
+  firstName: string;
 };

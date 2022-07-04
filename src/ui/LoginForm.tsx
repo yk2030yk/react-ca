@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useUseCase } from "@/presentation/useUseCase";
-import { useLoginUser } from "@/presentation/useLoginUser";
+import { useLoginUser } from "@/ui/useLoginUser";
 
 export const LoginForm = () => {
   const [email, setEmail] = useState("");

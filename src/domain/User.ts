@@ -1,7 +1,7 @@
 export class User {
-  constructor(private _name: string) {}
+  constructor(private _lastName: string, private _firstName: string) {}
 
-  get name() {
-    return this._name;
+  get fullName() {
+    return `${this._lastName} ${this._firstName}`;
   }
 }

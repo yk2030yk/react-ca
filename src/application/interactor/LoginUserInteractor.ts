@@ -6,6 +6,6 @@ export class LoginUserInteractor implements LoginUser {
 
   async handle(email: string, password: string) {
     const user = await this.userPort.login(email, password);
-    return { name: user.name };
+    return { fullName: user.fullName };
   }
 }
