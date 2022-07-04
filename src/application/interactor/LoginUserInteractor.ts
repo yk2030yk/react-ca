@@ -1,5 +1,5 @@
-import { LoginUser } from "../usecases/LoginUser";
-import { UserPort } from "../ports/UserPort";
+import { LoginUser } from "../usecase/LoginUser";
+import { UserPort } from "../port/UserPort";
 
 export class LoginUserInteractor implements LoginUser {
   constructor(private readonly userPort: UserPort) {}

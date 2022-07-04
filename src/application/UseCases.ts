@@ -1,4 +1,4 @@
-import { LoginUser } from "./usecases/LoginUser";
+import { LoginUser } from "./usecase/LoginUser";
 
 export type UseCases = {
   LoginUser: LoginUser;

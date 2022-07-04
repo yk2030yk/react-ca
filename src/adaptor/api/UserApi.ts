@@ -1,8 +1,8 @@
-import { UserPort } from "@/application/ports/UserPort";
+import { UserPort } from "@/application/port/UserPort";
 import { User } from "@/domain/User";
 
-import { ApiService } from "./api/ApiService";
-import { UserResponse } from "./UserResponse";
+import { ApiService } from "./ApiService";
+import { UserResponse } from "../response/UserResponse";
 
 export class UserApi implements UserPort {
   constructor(private apiService: ApiService) {}

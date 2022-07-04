@@ -3,27 +3,47 @@ import { useUseCase } from "@/presentation/useUseCase";
 import { useLoginUser } from "@/ui/useLoginUser";
 
 export const LoginForm = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-
-  const { LoginUser } = useUseCase();
-  const { login } = useLoginUser(LoginUser);
+  const form = useLoginForm();
 
   return (
     <div>
       <input
         type="text"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
+        value={form.email}
+        onChange={(e) => form.setEmail(e.target.value)}
       />
       <input
-        type="text"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
+        type="password"
+        value={form.password}
+        onChange={(e) => form.setPassword(e.target.value)}
       />
-      <button type="button" onClick={() => login(email, password)}>
+      <button type="button" onClick={form.login} disabled={form.loading}>
         login
       </button>
     </div>
   );
+};
+
+const useLoginForm = () => {
+  const [loading, setLoading] = useState(false);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const { LoginUser } = useUseCase();
+  const { loginUser } = useLoginUser(LoginUser);
+
+  const login = async () => {
+    setLoading(true);
+    await loginUser(email, password);
+    setLoading(false);
+  };
+
+  return {
+    email,
+    setEmail,
+    password,
+    setPassword,
+    login,
+    loading,
+  };
 };
