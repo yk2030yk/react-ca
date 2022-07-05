@@ -11,6 +11,6 @@ export class UserApi implements UserPort {
     const response = await this.apiService.post<UserResponse>("/login", {
       data: { email, password },
     });
-    return new User(response.lastName, response.firstName);
+    return new User(response.id, response.lastName, response.firstName);
   }
 }

@@ -15,6 +15,7 @@ export class UseCaseFactory implements Factory {
     return {
       // REST APIを使う場合
       LoginUser: new LoginUserInteractor(new UserApi(apiService)),
+
       // GraphQLを使う場合
       // LoginUser: new LoginUserInteractor(new UserGQL()),
     };

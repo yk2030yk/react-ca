@@ -8,6 +8,7 @@ export const LoginStateContext = createContext<{
 
 export const LoginDispatchContext = createContext<{
   setUser: (user: User) => void;
+  logout: () => void;
 }>({} as any);
 
 export const LoginProvider: React.FC<{
@@ -16,7 +17,9 @@ export const LoginProvider: React.FC<{
   const [user, setUser] = useState<User | undefined>();
   return (
     <LoginStateContext.Provider value={{ user }}>
-      <LoginDispatchContext.Provider value={{ setUser }}>
+      <LoginDispatchContext.Provider
+        value={{ setUser, logout: () => setUser(undefined) }}
+      >
         {children}
       </LoginDispatchContext.Provider>
     </LoginStateContext.Provider>

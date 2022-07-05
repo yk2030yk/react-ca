@@ -11,6 +11,7 @@ export class UserGQL implements UserPort {
       mutation: gql`
         mutation SignIn($email: String!, $password: String!) {
           signup(email: $email, password: $password) {
+            id
             lastName
             firstName
           }
@@ -24,6 +25,6 @@ export class UserGQL implements UserPort {
 
     if (!data) throw new Error("failed to login");
 
-    return new User(data.lastName, data.firstName);
+    return new User(data.id, data.lastName, data.firstName);
   }
 }
